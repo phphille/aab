@@ -1,0 +1,20 @@
+{
+    "name": "phpe/ctable",
+    "type": "library",
+    "description": "Class for HTML table",
+    "keywords": ["html", "table"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Philip Persson",
+            "email": "phphille@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-4": { "phpe\\": "src/" }
+    }
+}
