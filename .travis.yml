@@ -7,13 +7,12 @@ php:
 
 before_script:
     - wget https://scrutinizer-ci.com/ocular.phar
+    - composer install
 
 script:
     - phpunit
 
 after_script:
-    #- php ocular.phar code-coverage:upload --format=php-clover coverage.clover
-    - wget https://scrutinizer-ci.com/ocular.phar
     - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 
