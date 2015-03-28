@@ -205,6 +205,7 @@ class QuestionsController implements \Anax\DI\IInjectionAware
 
         $replies = $this->db->fetchAll();
 
+        $this->theme->setTitle($question[0]->titel);
         $this->views->add('questions/question', [
             'question' => $question,
             'title' => $question[0]->titel,
@@ -246,6 +247,7 @@ class QuestionsController implements \Anax\DI\IInjectionAware
 
         $tags = $this->db->fetchAll();
 
+        $this->theme->setTitle("Skapa en fråga");
         $this->views->add('questions/askQuestion', [
             'title' => 'Skapa en fråga',
             'tags' => $tags

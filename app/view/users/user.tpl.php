@@ -107,7 +107,7 @@
                         <div id='qPartUser'>
                             <label id='qUser'>
                                 <img src="<?php echo "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $question->userEmail ) ) ) . "?s=25" ?>" alt="" />
-                                <a href='<?=$this->di->get('url')->create('users/user/'.$question->userId)?>'><label id='userName'><?=$question->userName?></label></a>
+                                <a href='<?=$this->di->get('url')->create('users/user/'.$question->user)?>'><label id='userName'><?=$question->userName?></label></a>
                                 <i class='fa fa-trophy'></i><label id='userPoints'><?=$question->userPoints?></label>
                             </label>
                             <label id='qCreated'>
