@@ -1,0 +1,412 @@
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+    div#uAnswers{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    vertical-align: top;
+
+}
+div#uAttributes{
+    height: 60px;
+    width: 40%;
+    text-align: center;
+    display: inline-block;
+}
+div#uPartAttribute{
+    vertical-align: top;
+    width: 100%;
+    display: block;
+}
+div#uPartText{
+    vertical-align: top;
+    width: 100%;
+    display: block;
+}
+div#uPartQuestion{
+    vertical-align: top;
+    width: 100%;
+    display: block;
+}
+
+    .sitelogo {
+    margin: 0 auto;
+        display: block;
+    float: none;
+}
+    .navbar {
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 0;
+    float: none;
+    color: #666;
+}
+    div#aUsersCategory{
+    text-align: left;
+    padding: 5px;
+    background-color: #fff;
+    text-align: left;
+    display: block;
+    margin:10px 0px 10px 0;
+    width: 100%;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+}
+    div#userCategories{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+}
+
+#containerLeft {
+    width:100%;
+    margin:0 auto;
+    display: block;
+
+}
+#containerRight {
+    width:100%;
+    margin:0 auto;
+    display: block;
+}
+
+
+div#qPartAttribute{
+    display: inline-block;
+    width:100%;
+    vertical-align: top;
+}
+div#qPartQuestion{
+    display: inline-block;
+    width:100%;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    vertical-align: top;
+}
+div#qPartUser{
+    display: inline-block;
+    width:100%;
+    text-align: center;
+    vertical-align: top;
+
+}
+
+#navbar{
+    width: 100%;
+    margin: 0 0 24px 0;
+}
+#jumbotron{
+    .columnOneFill(@columns);
+    padding-top: 4%;
+    margin: 0;
+    margin-bottom: 24px;
+   .clearfix();
+     min-height: 400px;
+
+}
+#containerJumbotron {
+    .column(@columns);
+    padding: 5% 0 5%;
+}
+#container {
+    .column(@columns);
+    padding: 5% 0 5%;
+    margin-bottom: 24px;
+}
+
+#containerFooter {
+    .columnOneFill(@columns);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background: #cbcbcb;
+}
+
+#textContainer{
+    margin: 0 4px 0 (@background-grid-column - 4);
+    width: @background-grid-column * 4;
+    // om man vill addera padding multiplicera med magiska numret
+    padding-top: @magicNumber * 3;
+
+}
+#textContainer6{
+        margin: 0 4px 0 (@background-grid-column - 4);
+        width: @background-grid-column * 3;
+        // om man vill addera padding multiplicera med magiska numret
+        padding-top: @magicNumber * 3;
+
+}
+}
+
+
+
+
+
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 992px) and (min-width: 768px) {
+
+
+    .sitelogo {
+    margin: 0 auto;
+    float: none;
+}
+
+    .navbar {
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 0;
+    float: none;
+    color: #666;
+}
+    div#aUsersCategory{
+    text-align: left;
+    padding: 5px;
+    background-color: #fff;
+    text-align: left;
+    display: inline-block;
+    margin:10px;
+    width: 100%;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+}
+    div#userCategories{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+}
+
+#containerLeft {
+    width:100%;
+    margin:0 auto;
+    display: block;
+
+}
+#containerRight {
+    width:100%;
+    margin:0 auto;
+    display: block;
+}
+
+
+div#qPartAttribute{
+    display: inline-block;
+    width:100%;
+    vertical-align: top;
+}
+div#qPartQuestion{
+    display: inline-block;
+    width:100%;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    vertical-align: top;
+}
+div#qPartUser{
+    display: inline-block;
+    width:100%;
+    text-align: center;
+    vertical-align: top;
+}
+    #wrapper {
+    .clearfix();
+
+}
+
+#navbar{
+    .columnOneFill(@columns);
+    margin: 0 0 24px 0;
+   .clearfix();
+}
+
+#jumbotron{
+    .columnOneFill(@columns);
+    margin: 0;
+   .clearfix();
+    min-height: 400px;
+}
+
+#containerJumbotron {
+       display: block;
+    margin: 0 auto;
+    width: 80%;
+    padding-left: 0;
+    margin-bottom: 100px;
+    .clearfix();
+}
+
+#container {
+    .column((@columns / 3.5) * 3);
+    .push( (@columns - ((@columns / 3.5) * 3) ) * 0.5);
+    padding: 5% 0 5%;
+}
+
+#jumbotron2{
+    .columnOneFill(@columns);
+    margin: 0;
+   .clearfix();
+}
+
+
+#containerFooter {
+    .columnOneFill(@columns);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background: #cbcbcb;
+
+}
+
+
+#footer-col-1,
+#footer-col-2,
+#footer-col-3 {
+    .column(@columns / 3);
+    .clearfix();
+    margin-bottom: 24px;
+}
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 1166px) and (min-width: 993px) {
+
+div#userCategories{
+    width:90%;
+    margin:0 auto;
+    text-align: center;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+}
+div#aUsersCategory{
+    text-align: left;
+    padding: 5px;
+    background-color: #fff;
+    text-align: left;
+    display: inline-block;
+    margin:10px;
+    width: 100%;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+}
+
+    #containerJumbotron {
+    display: block;
+    margin-bottom: 100px;
+    .clearfix();
+}
+     #wrapper {
+    .clearfix();
+}
+
+#navbar{
+    .columnOneFill(@columns);
+    margin: 0 0 24px 0;
+   .clearfix();
+}
+
+#jumbotron{
+    .columnOneFill(@columns);
+    margin: 0;
+   .clearfix();
+     min-height: 400px;
+}
+
+#containerJumbotron {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    padding-left: 0;
+    margin-bottom: 100px;
+    .clearfix();
+}
+
+#container {
+    .column((@columns / 3.5) * 3);
+    .push( (@columns - ((@columns / 3.5) * 3) ) * 0.5);
+    padding: 5% 0 5%;
+}
+
+
+}
+
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 1167px) {
+    #wrapper {
+    .clearfix();
+}
+
+#navbar{
+    .columnOneFill(@columns);
+    margin: 0 0 24px 0;
+   .clearfix();
+}
+
+#jumbotron{
+    .columnOneFill(@columns);
+    margin: 0;
+   .clearfix();
+     min-height: 400px;
+}
+
+#containerJumbotron {
+    display: block;
+    width: 70%;
+    padding-left: 15%;
+    margin-bottom: 100px;
+    .clearfix();
+}
+
+#container {
+    .column((@columns / 3.5) * 3);
+    .push( (@columns - ((@columns / 3.5) * 3) ) * 0.5);
+    padding: 5% 0 5%;
+}
+
+
+#jumbotron2{
+    .columnOneFill(@columns);
+    margin: 0;
+   .clearfix();
+}
+
+
+#containerFooter {
+    .columnOneFill(@columns);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background: #cbcbcb;
+
+}
+
+
+#footer-col-1,
+#footer-col-2,
+#footer-col-3 {
+    .column(@columns / 3);
+    .clearfix();
+    margin-bottom: 24px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
