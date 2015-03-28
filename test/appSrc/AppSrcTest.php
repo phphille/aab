@@ -28,25 +28,25 @@ class AppSrcTest extends \PHPUnit_Framework_TestCase
         $this->assertContainsOnly('string', array($res));
 
 
-        $res = $ccu->editAnswer((object)array('id' => 2), 2, 2, 1);
+        $res = $ccu->editAnswer((object)array('id' => 2), 1, 2, 3);
 
         $this->assertNotNull($res);
         $this->assertContainsOnly('string', array($res));
 
 
-        $res = $ccu->editQuestion((object)array('id' => 2), 2, 2);
+        $res = $ccu->editQuestion((object)array('id' => 2), 2, 4);
 
         $this->assertNotNull($res);
         $this->assertContainsOnly('string', array($res));
 
-        $res = $ccu->editQuestion((object)array('id' => 2), 2, 2, 2);
+        $res = $ccu->editQuestion((object)array('id' => 2), 2, 2, 6);
 
         $this->assertNotNull($res);
         $this->assertContainsOnly('string', array($res));
 
 
 
-        $res = $ccu->voteUpAnswer(null, 2, 2, 2, 'question');
+        $res = $ccu->voteUpAnswer(null, 2, 2, 6, 'question');
 
         $this->assertNotNull($res);
         $this->assertContainsOnly('string', array($res));
