@@ -6,20 +6,15 @@ php:
     - hhvm
 
 before_script:
-    - wget http://getcomposer.org/composer.phar
-    - php composer.phar install --dev --no-interaction
     - wget https://scrutinizer-ci.com/ocular.phar
+    - composer install
 
 script:
-    - mkdir -p build/logs
-    - phpunit --bootstrap test/config.php --coverage-clover build/logs/clover.xml test
+    - phpunit
 
 after_script:
-    - php mosbth/bin/coveralls -v
-    - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
-notifications:
-    irc: "irc.freenode.org#dbwebb"
 
 
 
