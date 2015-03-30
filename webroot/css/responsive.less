@@ -1,6 +1,52 @@
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
-    div#uAnswers{
+    div.usersPage{
+    margin: auto;
+    text-align: left;
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #F4F4F4;
+    border-radius: 2px;
+    min-width: 260px;
+}
+
+    div.qUserInfo{
+    position: relative;
+    display: block;
+        margin: 0;
+        bottom: 0;
+        right: 0;
+}
+    div.qQuestionTags{
+    position: relative;
+    bottom: 15px;
+    margin-bottom: 0px;
+}
+
+    div.user{
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px;
+    margin:10px;
+    background-color: #F4F4F4;
+    border-radius: 2px;
+    min-width: 260px;
+}
+
+    div.sessionMessage {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width:100%;
+    margin-bottom: 20px;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+}
+
+    div.uAnswers{
     display: block;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -12,23 +58,24 @@
     vertical-align: top;
 
 }
-div#uAttributes{
+div.uAttributes{
     height: 60px;
     width: 40%;
     text-align: center;
     display: inline-block;
 }
-div#uPartAttribute{
+
+div.uPartAttribute{
     vertical-align: top;
     width: 100%;
     display: block;
 }
-div#uPartText{
+div.uPartText{
     vertical-align: top;
     width: 100%;
     display: block;
 }
-div#uPartQuestion{
+div.uPartQuestion{
     vertical-align: top;
     width: 100%;
     display: block;
@@ -46,7 +93,7 @@ div#uPartQuestion{
     float: none;
     color: #666;
 }
-    div#aUsersCategory{
+    div.aUsersCategory{
     text-align: left;
     padding: 5px;
     background-color: #fff;
@@ -58,7 +105,7 @@ div#uPartQuestion{
     -webkit-box-sizing: padding-box;
     -moz-box-sizing: padding-box;
 }
-    div#userCategories{
+    div.userCategories{
     width:100%;
     margin:0 auto;
     text-align: center;
@@ -77,19 +124,19 @@ div#uPartQuestion{
 }
 
 
-div#qPartAttribute{
+div.qPartAttribute{
     display: inline-block;
     width:100%;
     vertical-align: top;
 }
-div#qPartQuestion{
+div.qPartQuestion{
     display: inline-block;
     width:100%;
     text-align: center;
     margin: 20px 0 20px 0;
     vertical-align: top;
 }
-div#qPartUser{
+div.qPartUser{
     display: inline-block;
     width:100%;
     text-align: center;
@@ -113,6 +160,26 @@ div#qPartUser{
 #containerJumbotron {
     .column(@columns);
     padding: 5% 0 5%;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+}
+    #containerJumbotronUsers {
+        text-align: center;
+    .column(@columns);
+    padding: 5% 0 5%;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+}
+    div.user{
+    margin-top: 20px;
+    margin: 20px auto 20px 0;
+    text-align: left;
 }
 #container {
     .column(@columns);
@@ -164,7 +231,7 @@ div#qPartUser{
     float: none;
     color: #666;
 }
-    div#aUsersCategory{
+    div.aUsersCategory{
     text-align: left;
     padding: 5px;
     background-color: #fff;
@@ -176,7 +243,7 @@ div#qPartUser{
     -webkit-box-sizing: padding-box;
     -moz-box-sizing: padding-box;
 }
-    div#userCategories{
+    div.userCategories{
     width:100%;
     margin:0 auto;
     text-align: center;
@@ -195,24 +262,42 @@ div#qPartUser{
 }
 
 
-div#qPartAttribute{
+div.qPartAttribute{
     display: inline-block;
     width:100%;
     vertical-align: top;
 }
-div#qPartQuestion{
+div.qPartQuestion{
     display: inline-block;
     width:100%;
     text-align: center;
     margin: 20px 0 20px 0;
     vertical-align: top;
 }
-div#qPartUser{
+div.qPartUser{
     display: inline-block;
     width:100%;
     text-align: center;
     vertical-align: top;
 }
+
+
+    div.uPartAttribute{
+    vertical-align: top;
+    width: 100%;
+    display: block;
+}
+div.uPartText{
+    vertical-align: top;
+    width: 100%;
+    display: block;
+}
+div.uPartQuestion{
+    vertical-align: top;
+    width: 100%;
+    display: block;
+}
+
     #wrapper {
     .clearfix();
 
@@ -275,7 +360,7 @@ div#qPartUser{
 /* Medium devices (desktops, 992px and up) */
 @media (max-width: 1166px) and (min-width: 993px) {
 
-div#userCategories{
+div.userCategories{
     width:90%;
     margin:0 auto;
     text-align: center;
@@ -283,7 +368,7 @@ div#userCategories{
     -webkit-box-sizing: padding-box;
     -moz-box-sizing: padding-box;
 }
-div#aUsersCategory{
+div.aUsersCategory{
     text-align: left;
     padding: 5px;
     background-color: #fff;
@@ -360,7 +445,7 @@ div#aUsersCategory{
 #containerJumbotron {
     display: block;
     width: 70%;
-    padding-left: 15%;
+    margin: 0 auto;
     margin-bottom: 100px;
     .clearfix();
 }

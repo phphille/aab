@@ -19,6 +19,11 @@ $di->setShared('paginering', function() {
     return $paginering;
 });
 
+$di->setShared('CFlash', function() {
+    $CFlash = new \Phpmvc\flash\CFlash(array('error', 'notice', 'success'));
+    return $CFlash;
+});
+
 $di->setShared('pagineringNameUrl', function() {
     $pagineringNameUrl = new \Phpmvc\paginering\CPagineringNameUrl();
     return $pagineringNameUrl;

@@ -1,28 +1,26 @@
 
 <h1><?=$title?></h1>
-<div>
     <form method='get' onchange="form.submit()">
         <fieldset>
-        <input id='textField' type='text' name='textField' value='<?=$textField?>' placeholder='Sök'/>
-        <i id='input'>Söka på flera taggar ange tex: "(tags: hantel, skivstång)"</i>
+        <input type='text' name='textField' value='<?=$textField?>' placeholder='Sök'/>
+        <i class='input'>Kombinera sök ord med taggar, ange tex: "(tags: hantel, skivstång) problem med grepp"</i>
         </fieldset>
     </form>
-</div>
 <?=$hits?>
-<div id='indexContainer'>
+<div class='indexContainer'>
     <?php foreach($questions as $question) : ?>
-    <div id='question'>
-        <div id='qPartAttribute'>
-            <div id='qAttributes'>
-                <label id='qNbr'><?=$question->votes?></label>
-                <label id='qNbrDescrip'>Poäng</label>
+    <div class='question'>
+        <div class='qPartAttribute'>
+            <div class='qAttributes'>
+                <label class='qNbr'><?=$question->votes?></label>
+                <label class='qNbrDescrip'>Poäng</label>
             </div>
-            <div id='qAttributes'>
-                <label id='qNbr'><?=$question->nbrOfanswers?></label>
-                <label id='qNbrDescrip'>Antal svar</label>
+            <div class='qAttributes'>
+                <label class='qNbr'><?=$question->nbrOfanswers?></label>
+                <label class='qNbrDescrip'>Antal svar</label>
             </div>
-            <div id='qAttributes'>
-                <label id='qNbr'> <?php
+            <div class='qAttributes'>
+                <label class='qNbr'> <?php
                            if($question->cAnswer == 'ja'){
                                 echo "
                                 <i class='fa fa-check'></i>
@@ -35,27 +33,27 @@
                            }
                         ?>
                 </label>
-                <label id='qNbrDescrip'>Korrekt svar</label>
+                <label class='qNbrDescrip'>Korrekt svar</label>
             </div>
         </div>
-        <div id='qPartQuestion'>
-            <label id='qTitle'><a href='<?=$this->di->get('url')->create('questions/question/'.$question->id)?>'><?=$question->titel?></a></label>
+        <div class='qPartQuestion'>
+            <label class='qTitle'><a href='<?=$this->di->get('url')->create('questions/question/'.$question->id)?>'><?=$question->titel?></a></label>
             <?php
                 $tags = explode(',',$question->tags);
-                echo "<div id='qTags'>";
+                echo "<div class='qTags'>";
                 foreach($tags as $tag){
-                    echo "<label id='qTag'><a id='tag' href='{$this->url->create('questions?textField=(tags:'.$tag.')')}'>$tag</a></label>";
+                    echo "<label class='qTag'><a class='tag' href='{$this->url->create('questions?textField=(tags:'.$tag.')')}'>$tag</a></label>";
                 }
                 echo "</div>";
             ?>
         </div>
-        <div id='qPartUser'>
-            <label id='qUser'>
+        <div class='qPartUser'>
+            <label class='qUser'>
                 <img src="<?php echo "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $question->userEmail ) ) ) . "?s=25" ?>" alt="" />
-                <a href='<?=$this->di->get('url')->create('users/user/'.$question->user)?>'><label id='userName'><?=$question->userName?></label></a>
-                <i class='fa fa-trophy'></i><label id='userPoints'><?=$question->userPoints?></label>
+                <a href='<?=$this->di->get('url')->create('users/user/'.$question->user)?>'><label class='userName'><?=$question->userName?></label></a>
+                <i class='fa fa-trophy'></i><label class='userPoints'><?=$question->userPoints?></label>
             </label>
-            <label id='qCreated'>
+            <label class='qCreated'>
                 <?=$question->created?>
             </label>
         </div>

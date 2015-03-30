@@ -1,18 +1,18 @@
 
     <h1><?=$title?></h1>
     <?php foreach($questions as $question) : ?>
-    <div id='question'>
-        <div id='qPartAttribute'>
-            <div id='qAttributes'>
-                <label id='qNbr'><?=$question->votes?></label>
-                <label id='qNbrDescrip'>Poäng</label>
+    <div class='question'>
+        <div class='qPartAttribute'>
+            <div class='qAttributes'>
+                <label class='qNbr'><?=$question->votes?></label>
+                <label class='qNbrDescrip'>Poäng</label>
             </div>
-            <div id='qAttributes'>
-                <label id='qNbr'><?=$question->nbrOfanswers?></label>
-                <label id='qNbrDescrip'>Antal svar</label>
+            <div class='qAttributes'>
+                <label class='qNbr'><?=$question->nbrOfanswers?></label>
+                <label class='qNbrDescrip'>Antal svar</label>
             </div>
-            <div id='qAttributes'>
-                <label id='qNbr'> <?php
+            <div class='qAttributes'>
+                <label class='qNbr'> <?php
                            if($question->cAnswer == 'ja'){
                                 echo "
                                 <i class='fa fa-check'></i>
@@ -25,30 +25,30 @@
                            }
                         ?>
                 </label>
-                <label id='qNbrDescrip'>Korrekt svar</label>
+                <label class='qNbrDescrip'>Korrekt svar</label>
             </div>
         </div>
-        <div id='qPartQuestion'>
-            <label id='qTitle'><a href='<?=$this->di->get('url')->create('questions/question/'.$question->id)?>'><?=$question->titel?></a></label>
+        <div class='qPartQuestion'>
+            <label class='qTitle'><a href='<?=$this->di->get('url')->create('questions/question/'.$question->id)?>'><?=$question->titel?></a></label>
             <?php
                 $tags = explode(',',$question->tags);
-                echo "<div id='qTags'>";
+                echo "<div class='qTags'>";
                 foreach($tags as $tag){
-                    echo "<label id='qTag'><a id='tag' href='{$this->url->create('questions?textField=(tags:'.$tag.')')}'>$tag</a></label>";
+                    echo "<label class='qTag'><a class='tag' href='{$this->url->create('questions?textField=(tags:'.$tag.')')}'>$tag</a></label>";
                 }
                 echo "</div>";
             ?>
         </div>
-        <div id='qPartUser'>
-            <label id='qUser'>
+        <div class='qPartUser'>
+            <label class='qUser'>
                 <img src="<?php echo "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $question->userEmail ) ) ) . "?s=25" ?>" alt="" />
-                <a href='<?=$this->di->get('url')->create('users/user/'.$question->userId)?>'><label id='userName'><?=$question->userName?></label></a>
-                <i class='fa fa-trophy'></i><label id='userPoints'><?=$question->userPoints?></label>
+                <a href='<?=$this->di->get('url')->create('users/user/'.$question->user)?>'><label class='userName'><?=$question->userName?></label></a>
+                <i class='fa fa-trophy'></i><label class='userPoints'><?=$question->userPoints?></label>
             </label>
-            <label id='qCreated'>
+            <label class='qCreated'>
                 <?=$question->created?>
             </label>
         </div>
     </div>
-    <div id='containerQuestionScore'></div>
+    <div class='containerQuestionScore'></div>
     <?php endforeach; ?>

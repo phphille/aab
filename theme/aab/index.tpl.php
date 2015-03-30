@@ -27,16 +27,18 @@
     </div>
 
 
-    <?php if ($this->views->hasContent('jumbotronOnly')) : ?>
-        <div id='jumbotron'>
-                <?php $this->views->render('jumbotronOnly')?>
-        </div>
-    <?php endif; ?>
-
 
     <?php if ($this->views->hasContent('jumbotron')) : ?>
         <div id='jumbotron'>
             <div id='containerJumbotron'>
+                <?php if ($this->di->session->get('output')) : ?>
+                    <div class='sessionMessage'>
+                        <?php  echo $this->di->session->get('output');
+
+                            $this->di->session->set('output', null);
+                        ?>
+                    </div>
+                <?php endif; ?>
                 <?php $this->views->render('jumbotron')?>
             </div>
         </div>

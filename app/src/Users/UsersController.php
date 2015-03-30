@@ -25,7 +25,35 @@ class UsersController implements \Anax\DI\IInjectionAware
         $this->initialize();
         $this->theme->setTitle("Användare");
 
+        $orderby = $this->request->getGet('orderby', 'points');
+        $order = $this->request->getGet('order', 'desc');
+        $hits = $this->request->getGet('hits', 9);
+        $page = $this->request->getGet('page', 1);
+        $offset = (($page-1)*$hits);
+
+
         if($this->request->getGet('textField')!=null || !empty($this->request->getGet('textField'))){
+
+            $this->db
+            ->select('
+            u.*,
+            sum(
+            IF((select sum(value) from pointsAnswers where userId = u.id) is null, 0, (select sum(value) from pointsAnswers where userId = u.id))
+            +
+            IF((select sum(value) from pointsQuestions where userId = u.id) is null, 0, (select sum(value) from pointsQuestions where userId = u.id))
+            +
+            IF((select sum(value) from pointsReplies where userId = u.id) is null, 0, (select sum(value) from pointsReplies where userId = u.id))
+            +
+            ((select count(*) from answers where user = u.id) + (select count(*) from replies where user = u.id) + (select count(*) from questions where user = u.id))
+            ) as points
+            from users as u')
+            ->where('u.acronym LIKE "%'.strip_tags($this->request->getGet('textField')).'%"')
+            ->groupBy('u.id')
+            ->execute();
+
+            $count = $this->db->fetchAll();
+
+
              $this->db
             ->select('
             u.*,
@@ -41,7 +69,9 @@ class UsersController implements \Anax\DI\IInjectionAware
             from users as u')
             ->where('u.acronym LIKE "%'.strip_tags($this->request->getGet('textField')).'%"')
             ->groupBy('u.id')
-            ->orderBy('points DESC')
+            ->orderBy(" $orderby $order ")
+            ->limit("$hits")
+            ->offset("$offset")
             ->execute();
 
         }
@@ -60,9 +90,33 @@ class UsersController implements \Anax\DI\IInjectionAware
             u.*
             from users as u')
             ->groupBy('u.id')
-            ->orderBy('points DESC')
             ->execute();
+            $count = $this->db->fetchAll();
+
+            $this->db
+            ->select('
+            sum(
+            IF((select sum(value) from pointsAnswers where userId = u.id) is null, 0, (select sum(value) from pointsAnswers where userId = u.id))
+            +
+            IF((select sum(value) from pointsQuestions where userId = u.id) is null, 0, (select sum(value) from pointsQuestions where userId = u.id))
+            +
+            IF((select sum(value) from pointsReplies where userId = u.id) is null, 0, (select sum(value) from pointsReplies where userId = u.id))
+            +
+            ((select count(*) from answers where user = u.id) + (select count(*) from replies where user = u.id) + (select count(*) from questions where user = u.id))
+            ) as points,
+            u.*
+            from users as u')
+            ->groupBy('u.id')
+            ->orderBy(" $orderby $order ")
+            ->limit("$hits")
+            ->offset("$offset")
+            ->execute();
+
+
+
         }
+
+        $this->paginering->setTotalRows($hits, $page, count($count));
 
         $users = $this->db->fetchAll();
         $textField = $this->request->getGet('textField');
@@ -70,6 +124,10 @@ class UsersController implements \Anax\DI\IInjectionAware
         $this->views->add('users/users', [
             'users' => $users,
             'title' => "Användare",
+            'hits' => $this->paginering->getNbrOfHitsPerPage2(3,6,9),
+            'pages' => $this->paginering->getPageNav(),
+            'orderby' => $orderby,
+            'order' => $order,
             'textField' => $textField
         ], 'jumbotronUsers');
 
@@ -212,6 +270,7 @@ class UsersController implements \Anax\DI\IInjectionAware
             ->join('questions as q','q.id = r.question')
             ->join('users as u','u.id = r.user')
             ->where('pr.userId = '.$id)
+            ->orderBy('date DESC')
             ->limit(6)
             ->execute();
 
@@ -229,6 +288,7 @@ class UsersController implements \Anax\DI\IInjectionAware
             ->join('questions as q','q.id = a.question')
             ->join('users as u','u.id = a.user')
             ->where('pa.userId = '.$id)
+            ->orderBy('date DESC')
             ->limit(6)
             ->execute();
 
@@ -244,11 +304,29 @@ class UsersController implements \Anax\DI\IInjectionAware
             ->join('questions as q','q.id = pq.questionId')
             ->join('users as u','u.id = q.user')
             ->where('userId = '.$id)
+            ->orderBy('date DESC')
             ->limit(6)
             ->execute();
 
         $votesUserQuestions = $this->db->fetchAll();
 
+
+        $this->db
+            ->select('a.*,
+            q.id as qId,
+            q.titel as qTitel,
+            u.*
+            from answers as a')
+            ->join('questions as q','q.id = a.question')
+            ->join('users as u','a.user = u.id')
+            ->where('q.user = '.$id)
+            ->orderBy('correctAnswerDate DESC')
+            ->limit(6)
+            ->execute();
+
+        $userTrohpies = $this->db->fetchAll();
+
+        /*
         $votesArray = array_merge($votesUserAnswers, $votesUserReplies, $votesUserQuestions);
 
         $votesArray = array_map(function ($v) {
@@ -260,7 +338,7 @@ class UsersController implements \Anax\DI\IInjectionAware
             $dates[$key] = $row['date'];
         }
         array_multisort($dates, SORT_DESC, $votesArray);
-
+        */
 
         $aOrderby = $this->request->getGet('aorderby', 'created');
         $aOrder = $this->request->getGet('aorder', 'DESC');
@@ -448,7 +526,11 @@ class UsersController implements \Anax\DI\IInjectionAware
             'aPageNav' => $aPageNav,
             'qHitsNav' => $qHitsNav,
             'qPageNav' => $qPageNav,
-            'recentVotes' => $votesArray,
+            //'recentVotes' => $votesArray,
+            'userTrophies' => $userTrohpies,
+            'recentVotesReplies' => $votesUserReplies,
+            'recentVotesQuestions' => $votesUserQuestions,
+            'recentVotesAnswers' => $votesUserAnswers,
             'questions' => $questions,
             'replies' => $replies,
             'userTags' => $newTags,
@@ -457,7 +539,7 @@ class UsersController implements \Anax\DI\IInjectionAware
             'email' => $email,
             'lastName' => $lastName,
             'firstName' => $firstName
-        ], 'jumbotronOnly');
+        ], 'jumbotron');
 
     }
 
@@ -466,7 +548,10 @@ class UsersController implements \Anax\DI\IInjectionAware
     public function createUserAction()
     {
         if($this->request->getPost('doCreateUser')){
-            $this->users->createUser(strip_tags($this->request->getPost('acronym')), strip_tags($this->request->getPost('email')), strip_tags($this->request->getPost('firstName')), strip_tags($this->request->getPost('lastName')), strip_tags($this->request->getPost('password')));
+
+            $res = $this->users->createUser(strip_tags($this->request->getPost('acronym')), strip_tags($this->request->getPost('email')), strip_tags($this->request->getPost('firstName')), strip_tags($this->request->getPost('lastName')), strip_tags($this->request->getPost('password')));
+
+            dump($res);
         }
         $this->theme->setTitle("Skapa ett konto");
         $this->views->add('users/create-user', [

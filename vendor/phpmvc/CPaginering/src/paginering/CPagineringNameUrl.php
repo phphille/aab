@@ -32,13 +32,13 @@ class CPagineringNameUrl extends CQueryString {
  * @return string as a link to this page.
  */
     private function getHitsPerPage($hits, $hitsName) {
-      $nav = "<div id='hits'>";
+      $nav = "<div class='hits'>";
       foreach($hits AS $val) {
           if($val == $this->hits){
-        $nav .= "<label id='hitsActive'><a id='tag' href='" . $this->getQueryString(array($hitsName => $val)) . "'>$val</a></label>";
+        $nav .= "<label class='hitsActive'><a class='tag' href='" . $this->getQueryString(array($hitsName => $val)) . "'>$val</a></label>";
           }
           else{
-          $nav .= "<label id='hits'><a class='pageNav' href='" . $this->getQueryString(array($hitsName => $val)) . "'>$val</a></label>";
+          $nav .= "<label class='hits'><a class='pageNav' href='" . $this->getQueryString(array($hitsName => $val)) . "'>$val</a></label>";
           }
       }
         $nav .= "</div>";
@@ -55,20 +55,20 @@ class CPagineringNameUrl extends CQueryString {
  * @return string as a link to this page.
  */
     private function getPageNavigation($hits, $page, $max, $min=1, $pageName) {
-      $nav  = "<div id='page'><label id='page'><a id='tag' href='" . $this->getQueryString(array($pageName => $min)) . "'>&#8676;</a></label> ";
-      $nav .= "<label id='page'><a id='tag' href='" . $this->getQueryString(array($pageName => ($page > $min ? $page - 1 : $min) )) . "' >&#10096;</a> </label>";
+      $nav  = "<div class='page'><label class='page'><a class='tag' href='" . $this->getQueryString(array($pageName => $min)) . "'>&#8676;</a></label> ";
+      $nav .= "<label class='page'><a class='tag' href='" . $this->getQueryString(array($pageName => ($page > $min ? $page - 1 : $min) )) . "' >&#10096;</a> </label>";
 
       for($i=$min; $i<=$max; $i++) {
         if($i == $page){
-            $nav .= "<label id='pageActive'>".$i."</label>";
+            $nav .= "<label class='pageActive'>".$i."</label>";
         }
         else{
-            $nav .= "<label id='page'><a id='tag' href='" . $this->getQueryString(array($pageName => $i)) . "' class='pageNav' >$i</a></label> ";
+            $nav .= "<label class='page'><a class='tag' href='" . $this->getQueryString(array($pageName => $i)) . "' class='pageNav' >$i</a></label> ";
         }
       }
 
-      $nav .= "<label id='page'><a id='tag' href='" . $this->getQueryString(array($pageName => ($page < $max ? $page + 1 : $max) )) . "' class='pageNav'>&#10097;</a></label> ";
-      $nav .= "<label id='page'><a id='tag' href='" . $this->getQueryString(array($pageName => $max)) . "' class='pageNav' >&#x21e5;</a></label></div>";
+      $nav .= "<label class='page'><a class='tag' href='" . $this->getQueryString(array($pageName => ($page < $max ? $page + 1 : $max) )) . "' class='pageNav'>&#10097;</a></label> ";
+      $nav .= "<label class='page'><a class='tag' href='" . $this->getQueryString(array($pageName => $max)) . "' class='pageNav' >&#x21e5;</a></label></div>";
       return $nav;
     }
 

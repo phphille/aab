@@ -4,7 +4,7 @@ Här kan alla som besöker sidan läsa alla frågor och deras tillhörande svar 
 
 Det är helt konstnadsfritt att bli medlem.
 
-När man är medlem får man automatiskt 0 i poäng, vilket kommer att förändras när man skapar frågor, anger svar och kommenterar svar. Man kan sedan också ange röster +1 eller -1 på frågor, svar och kommentarer som beskriver hur bra respektive är.
+När man är medlem får man automatiskt 0 i poäng, vilket kommer att förändras när man skapar frågor, anger svar och ger kommentarer på svar. Man kan sedan också ange röster +1 eller -1 på frågor, svar och kommentarer som beskriver hur bra respektive är.
 
 
 *Philip Persson är ny examinerad interaktionsdesigner som har fått ett ökat 

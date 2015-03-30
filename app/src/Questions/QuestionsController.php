@@ -129,19 +129,46 @@ class QuestionsController implements \Anax\DI\IInjectionAware
             $url = $this->url->create('questions/');
             $this->response->redirect($url);
         }
-        if($this->request->getPost('commentReply') !=null ){
+        if($this->request->getPost('commentReply') != null ){
             if(!is_numeric($this->request->getPost('userId')) || !is_numeric($this->request->getPost('answerId')) || !is_numeric($this->request->getPost('questionId'))){
                 $url = $this->url->create("questions/question/$id");
                 $this->response->redirect($url);
             }
-            $this->questions->commentReply(strip_tags($this->request->getPost('text')), $this->request->getPost('userId'), $this->request->getPost('answerId'), $this->request->getPost('questionId'));
+
+            $res = $this->questions->commentReply(strip_tags($this->request->getPost('text')), $this->request->getPost('userId'), $this->request->getPost('answerId'), $this->request->getPost('questionId'));
+
+            if($res){
+                $this->di->session->set('output', $this->di->CFlash->message('success', 'Kommentaren har nu skapats'));
+                $url = $this->di->url->create("questions/question/$id");
+                $this->di->response->redirect($url);
+            }
+            else{
+                $this->di->session->set('output', $this->di->CFlash->message('error', 'Det gick inte att skapa kommentaren'));
+                $url = $this->di->url->create("questions/question/$id");
+                $this->di->response->redirect($url);
+            }
+
         }
         else if($this->request->getPost('createAnswer') != null){
             if(!is_numeric($this->request->getPost('userId')) || !is_numeric($this->request->getPost('questionId'))){
                 $url = $this->url->create("questions/question/$id");
                 $this->response->redirect($url);
             }
-            $this->questions->createAnswer(strip_tags($this->request->getPost('text')), $this->request->getPost('userId'), $this->request->getPost('questionId'));
+
+            $res = $this->questions->createAnswer(strip_tags($this->request->getPost('text')), $this->request->getPost('userId'), $this->request->getPost('questionId'));
+
+
+            if($res){
+                $this->di->session->set('output', $this->di->CFlash->message('success', 'Svaret har nu skapats'));
+                $url = $this->di->url->create("questions/question/$id");
+                $this->di->response->redirect($url);
+            }
+            else{
+                $this->di->session->set('output', $this->di->CFlash->message('error', 'Det gick inte att skapa svaret'));
+                $url = $this->di->url->create("questions/question/$id");
+                $this->di->response->redirect($url);
+            }
+
         }
 
 
@@ -233,7 +260,13 @@ class QuestionsController implements \Anax\DI\IInjectionAware
             $res = $this->questions->createQuestion(strip_tags($this->request->getPost('titel')), strip_tags($this->request->getPost('text')), $this->di->session->get('user')->id, $this->request->getPost('tags'), strip_tags($this->request->getPost('newTags')) );
 
             if($res[0]){
+                $this->di->session->set('output', $this->di->CFlash->message('success', 'Frågan har nu skapats'));
                 $url = $this->di->url->create("questions/question/$res[1]");
+                $this->di->response->redirect($url);
+            }
+            else{
+                $this->di->session->set('output', $this->di->CFlash->message('error', 'Det gick inte att skapa frågan'));
+                $url = $this->di->url->create("ask-question");
                 $this->di->response->redirect($url);
             }
         }
@@ -274,10 +307,19 @@ class QuestionsController implements \Anax\DI\IInjectionAware
                     $url = $this->di->url->create('questions');
                     $this->di->response->redirect($url);
                 }
-                $this->questions->editQuestion($this->request->getPost('id'), strip_tags($this->request->getPost('text')), strip_tags($this->request->getPost('titel')), $this->request->getPost('tags'));
 
-                $url = $this->di->url->create('questions/question/'.$idQuestion);
-                $this->di->response->redirect($url);
+                $res = $this->questions->editQuestion($this->request->getPost('id'), strip_tags($this->request->getPost('text')), strip_tags($this->request->getPost('titel')));
+
+                if($res){
+                    $this->di->session->set('output', $this->di->CFlash->message('success', 'Frågan har nu uppdateras'));
+                    $url = $this->di->url->create("questions/question/$idQuestion");
+                    $this->di->response->redirect($url);
+                }
+                else{
+                    $this->di->session->set('output', $this->di->CFlash->message('error', 'Frågan kunde inte uppdateras'));
+                    $url = $this->di->url->create("questions/question/$idQuestion");
+                    $this->di->response->redirect($url);
+                }
 
             }
 
@@ -400,10 +442,19 @@ class QuestionsController implements \Anax\DI\IInjectionAware
                     $url = $this->di->url->create('questions');
                     $this->di->response->redirect($url);
                 }
-                $this->questions->editAnswer($this->request->getPost('id'), strip_tags($this->request->getPost('text')));
+                $res = $this->questions->editAnswer($this->request->getPost('id'), strip_tags($this->request->getPost('text')));
 
-                $url = $this->di->url->create('questions/question/'.$idQuestion);
-                $this->di->response->redirect($url);
+                if($res){
+                    $this->di->session->set('output', $this->di->CFlash->message('success', 'Svaret har nu uppdaterats'));
+                    $url = $this->di->url->create('questions/question/'.$idQuestion);
+                    $this->di->response->redirect($url);
+                }
+                else{
+                    $this->di->session->set('output', $this->di->CFlash->message('error', 'Svaret kunde inte uppdateras'));
+                    $url = $this->di->url->create('questions/question/'.$idQuestion);
+                    $this->di->response->redirect($url);
+                }
+
             }
 
             $this->db
@@ -446,10 +497,19 @@ class QuestionsController implements \Anax\DI\IInjectionAware
                     $url = $this->di->url->create('questions');
                     $this->di->response->redirect($url);
                 }
-                $this->questions->editReply($this->request->getPost('id'), strip_tags($this->request->getPost('text')));
+                $res = $this->questions->editReply($this->request->getPost('id'), strip_tags($this->request->getPost('text')));
 
-                $url = $this->di->url->create('questions/question/'.$idQuestion);
-                $this->di->response->redirect($url);
+                if($res){
+                    $this->di->session->set('output', $this->di->CFlash->message('success', 'Kommentaren har nu uppdaterats'));
+                    $url = $this->di->url->create('questions/question/'.$idQuestion);
+                    $this->di->response->redirect($url);
+                }
+                else{
+                    $this->di->session->set('output', $this->di->CFlash->message('error', 'Kommentaren kunde inte uppdateras'));
+                    $url = $this->di->url->create('questions/question/'.$idQuestion);
+                    $this->di->response->redirect($url);
+                }
+
             }
 
             $this->db

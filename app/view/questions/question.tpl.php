@@ -15,21 +15,21 @@
             <?php if ($value->edited != 0) : ?>
                 <p class='timestamp'>Uppdaterad: <?=$value->edited?></p>
             <?php endif; ?>
-        <div id='divider'></div>
-        <div id='qQuestionTags'>
+        <div class='divider'></div>
+        <div class='qQuestionTags'>
             <?php
             $tags = explode(',',$value->tags);
-            echo "<div id='qTags'>";
+            echo "<div class='qTags'>";
             foreach($tags as $tag){
-                echo "<label id='qTag'><a id='tag' href='{$this->url->create("questions?textField=(tags:$tag)")}'>$tag</a></label>";
+                echo "<label class='qTag'><a class='tag' href='{$this->url->create("questions?textField=(tags:$tag)")}'>$tag</a></label>";
             }
             echo "</div>";
             ?>
         </div>
-        <div id='qUserInfo'>
-            <img id='qQuestionUser' src="<?php echo "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $value->userEmail ) ) ) . "?s=50" ?>" alt="" />
-            <label id='qQuestionUserName'><a href='<?=$this->url->create("users/user/$value->userID")?>'><?=$value->userName?></a></label>
-            <label id='qQuestionUserPoints'><i class='fa fa-trophy'></i> <?=$value->userPoints?></label>
+        <div class='qUserInfo'>
+            <img class='qQuestionUser' src="<?php echo "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $value->userEmail ) ) ) . "?s=50" ?>" alt="" />
+            <label class='qQuestionUserName'><a href='<?=$this->url->create("users/user/$value->userID")?>'><?=$value->userName?></a></label>
+            <label class='qQuestionUserPoints'><i class='fa fa-trophy'></i> <?=$value->userPoints?></label>
         </div>
     <?php endforeach; ?>
 </div>
@@ -37,37 +37,37 @@
 </p>
 <?php if (!empty($answers)) : ?>
         <h3><?=count($answers)." Svar"?></h3>
-    <div id='orderby'>
+    <div class='orderby'>
     <?php
     $selected = "";
     if($orderby == 'votes'){
        $selected = "Active";
     }
-    echo "<label id='orderby$selected'><a id='tag' href='{$this->di->paginering->getQueryString(array('orderby' => 'votes'))}'>Votes</a></label>";
+    echo "<label class='orderby$selected'><a class='tag' href='{$this->di->paginering->getQueryString(array('orderby' => 'votes'))}'>Röster</a></label>";
 
     $selected = "";
     if($orderby == 'created'){
        $selected = "Active";
     }
-    echo "<label id='orderby$selected'><a id='tag' href='{$this->di->paginering->getQueryString(array('orderby' => 'created'))}'>Created</a></label>";
+    echo "<label class='orderby$selected'><a class='tag' href='{$this->di->paginering->getQueryString(array('orderby' => 'created'))}'>Skapad</a></label>";
 
     $selected = "";
     if($order == 'asc'){
        $selected = "Active";
     }
-    echo "<label id='orderby$selected'><a id='tag' href='{$this->di->paginering->getQueryString(array('order' => 'asc'))}'>ASC</a></label>";
+    echo "<label class='orderby$selected'><a class='tag' href='{$this->di->paginering->getQueryString(array('order' => 'asc'))}'>ASC</a></label>";
 
     $selected = "";
     if($order == 'desc'){
        $selected = "Active";
     }
-    echo "<label id='orderby$selected'><a id='tag' href='{$this->di->paginering->getQueryString(array('order' => 'desc'))}'>DESC</a></label>";
+    echo "<label class='orderby$selected'><a class='tag' href='{$this->di->paginering->getQueryString(array('order' => 'desc'))}'>DESC</a></label>";
 
     ?>
     </div>
     <?php foreach ($answers as $answer) : ?>
             <div class='commentContainer'>
-
+                <a name="a<?=$answer->id?>"></a>
                 <?php if ($this->di->session->get('user') != null && $answer->userID == $this->di->session->get('user')->id) : ?>
                     <?=$this->di->ccheckUser->editAnswer($this->di->session->get('user'), $answer->id, $answer->userID, $question[0]->id)?>
                 <?php endif; ?>
@@ -96,15 +96,16 @@
                     <p class='timestamp'>Uppdaterad <?=$answer->edited?></p>
                 <?php endif; ?>
 
-                <div id='aUserInfo'>
+                <div class='aUserInfo'>
                     <img src="<?php echo "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $answer->userEmail ) ) ) . "?s=50" ?>" alt="" style='margin-right: 5px;'/>
-                    <label id='qQuestionUserName'><a href='<?=$this->url->create("users/user/$answer->userID")?>'><?=$answer->userName?></a></label>
-                    <label id='qQuestionUserPoints'><i class='fa fa-trophy'></i> <?=$answer->userPoints?></label>
+                    <label class='qQuestionUserName'><a href='<?=$this->url->create("users/user/$answer->userID")?>'><?=$answer->userName?></a></label>
+                    <label class='qQuestionUserPoints'><i class='fa fa-trophy'></i> <?=$answer->userPoints?></label>
                 </div>
                 <?php if(!empty($replies)) : ?>
                     <?php foreach ($replies as $reply) : ?>
                         <?php if($reply->answer == $answer->id) : ?>
                             <div class='commentReply'>
+                                <a name="r<?=$reply->id?>"></a>
                                 <i class='reply'>Kommentar</i>
                                 <br>
                                 <?php if ($this->di->session->get('user') != null && $reply->userID == $this->di->session->get('user')->id) : ?>
@@ -121,10 +122,10 @@
                                 <?php if ($reply->edited != 0) : ?>
                                     <p class='timestamp'>Uppdaterad: <?=$reply->edited?></p>
                                 <?php endif; ?>
-                                <div id='aUserInfo'>
+                                <div class='aUserInfo'>
                                     <img src="<?php echo "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $reply->userEmail ) ) ) . "?s=25" ?>" alt="" style='margin-right: 5px;'/>
-                                    <label id='qQuestionUserName'><a href='<?=$this->url->create("users/user/$reply->userID")?>'><?=$reply->userName?></a></label>
-                                    <label id='qQuestionUserPoints'><i class='fa fa-trophy'></i> <?=$reply->userPoints?></label>
+                                    <label class='qQuestionUserName'><a href='<?=$this->url->create("users/user/$reply->userID")?>'><?=$reply->userName?></a></label>
+                                    <label class='qQuestionUserPoints'><i class='fa fa-trophy'></i> <?=$reply->userPoints?></label>
                                 </div>
                             </div>
                         <?php endif; ?>
@@ -135,7 +136,7 @@
                     <div>
                         <form method='post'>
                             <fieldset>
-                                <textarea class='comment' id='textFieldReplyAnswer' name='text' placeholder='Kommentera' required></textarea>
+                                <textarea class='comment' class='textFieldReplyAnswer' name='text' placeholder='Kommentera' required></textarea>
                                 <input type='hidden' name='userId' value='<?=$this->di->session->get('user')->id?>'/>
                                 <input type='hidden' name='answerId' value='<?=$answer->id?>'/>
                                 <input type='hidden' name='questionId' value='<?=$question[0]->id?>'/>
@@ -149,10 +150,10 @@
 <?php endif; ?>
 
 <?php if($this->di->session->get('user')) : ?>
-    <div id='writeAnswer'>
+    <div class='writeAnswer'>
         <h3>Ange ett svar</h3>
         <form method='post'>
-                <textarea id='textAreaAnswer' name='text' placeholder='Ange ett svar' required></textarea>
+                <textarea class='textAreaAnswer' name='text' placeholder='Ange ett svar' required></textarea>
                 <input type='hidden' name='userId' value='<?=$this->di->session->get('user')->id?>'/>
                 <input type='hidden' name='questionId' value='<?=$question[0]->id?>'/>
                 <input type='submit' name='createAnswer' value='Svara'/>

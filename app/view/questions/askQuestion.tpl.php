@@ -2,15 +2,15 @@
 <h1><?=$title?></h1>
 <form method='post'>
     <fieldset>
-        <input id='textField' type='text' name='titel' placeholder='Titel' tabindex='1' title='Ange en titel på frågan' required/>
-        <textarea id='askQuestion' name='text' placeholder='Fråga' tabindex='2' title='Ange frågan' required/></textarea>
+        <input class='textField' type='text' name='titel' placeholder='Titel' tabindex='1' title='Ange en titel på frågan' required/>
+        <textarea class='askQuestion' name='text' placeholder='Fråga' tabindex='2' title='Ange frågan' required/></textarea>
         <select name='tags[]' data-placeholder='Välj taggar, minst 1 - högst 5' class='chosen-select-deselect' tabindex='3' multiple >
             <option value=''></option>
             <?php foreach($tags as $tag) : ?>
                 <option value='<?=$tag->id?>'><?=$tag->name?></option>
             <?php endforeach; ?>
         </select>
-        <input class='newTags' type='text' name='newTags' placeholder='Ange ny tagg/taggar "taggnamn, taggnamn"'/>
+        <input class='newTags' type='text' name='newTags' placeholder='Ange ny tagg/taggar, tex "taggnamn, taggnamn". får totalt bara vara 5 st'/>
     <input type='submit' name='createQuestion' value='Skapa'>
     </fieldset>
 

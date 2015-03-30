@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:10:"style.less";s:8:"compiled";s:68203:"@import "source.css";
+a:4:{s:4:"root";s:10:"style.less";s:8:"compiled";s:70806:"@import "source.css";
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -335,6 +335,9 @@ a:focus {
 .read-more:after {
   content: " \00BB";
 }
+i.votes {
+  margin: 10px;
+}
 #me {
   float: right;
   margin: 0 0 0 20px;
@@ -365,29 +368,29 @@ a:focus {
   font-style: italic;
   color: #666;
 }
-div#accountInfo {
+div.accountInfo {
   float: right;
   margin-bottom: 50px;
 }
-div#editAccountInfo {
+div.editAccountInfo {
   right: 0;
   position: absolute;
 }
-div#userCategories {
-  width: 80%;
+div.userCategories {
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   box-sizing: padding-box;
   -webkit-box-sizing: padding-box;
   -moz-box-sizing: padding-box;
 }
-div#aUsersCategory {
+div.aUsersCategory {
   text-align: left;
   padding: 5px;
   background-color: #fff;
   display: inline-block;
   margin: 10px;
-  width: 80%;
+  width: 100%;
   box-sizing: padding-box;
   -webkit-box-sizing: padding-box;
   -moz-box-sizing: padding-box;
@@ -452,11 +455,24 @@ div#aUsersCategory {
 #jumbotron:after {
   clear: both;
 }
+div.sessionMessage {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  margin-bottom: 20px;
+  box-sizing: padding-box;
+  -webkit-box-sizing: padding-box;
+  -moz-box-sizing: padding-box;
+}
 #containerJumbotron {
   display: block;
   width: 60%;
-  padding-left: 20%;
+  margin: 0 auto;
   margin-bottom: 100px;
+  box-sizing: padding-box;
+  -webkit-box-sizing: padding-box;
+  -moz-box-sizing: padding-box;
   *zoom: 1;
 }
 #containerJumbotron:before,
@@ -2826,11 +2842,11 @@ figure.rounded img {
   -moz-border-radius: 50px;
   border-radius: 50px;
 }
-i#input {
+i.input {
   display: block;
   margin: 20px 0px 20px 0px;
 }
-div#question {
+div.question {
   display: block;
   padding: 5px;
   margin-top: 5px;
@@ -2842,70 +2858,70 @@ div#question {
   -webkit-box-sizing: padding-box;
   -moz-box-sizing: padding-box;
 }
-div#qPartAttribute {
+div.qPartAttribute {
   display: inline-block;
   width: 30%;
   vertical-align: top;
 }
-div#qPartQuestion {
+div.qPartQuestion {
   display: inline-block;
   width: 44%;
   vertical-align: top;
 }
-div#qPartUser {
+div.qPartUser {
   display: inline-block;
   width: 25%;
   vertical-align: top;
 }
-div#qTags {
+div.qTags {
   display: block;
 }
-div#tagItem {
+div.tagItem {
   display: inline-block;
 }
-div#qAttributes {
+div.qAttributes {
   height: 60px;
   width: 32%;
   text-align: center;
   vertical-align: middle;
   display: inline-block;
 }
-label#qTag {
+label.qTag {
   display: inline-block;
 }
-label#qTitle {
+label.qTitle {
   display: block;
   font-size: 1.25em;
   margin-bottom: 10px;
 }
-label#qUser {
+label.qUser {
   display: block;
   margin-bottom: 10px;
 }
-label#userName {
+label.userName {
   margin: 2px;
   padding-left: 2px;
   padding-right: 2px;
 }
-label#userPoints {
+label.userPoints {
   margin: 2px;
   padding-left: 2px;
 }
-label#qCreated {
+label.qCreated {
   display: block;
   font-size: 0.80em;
   font-style: italic;
 }
-label#qNbr {
+label.qNbr {
   font-size: 1.25em;
   color: #3eb1ff;
   display: block;
 }
-label#qNbrDescrip {
+label.qNbrDescrip {
   font-size: 0.80em;
   display: block;
 }
-label#qTag {
+label.qTag {
   font-size: 0.80em;
   margin: 2px;
   padding-bottom: 2px;
@@ -2916,34 +2932,35 @@ label#qTag {
   color: #333;
   border-radius: 2px;
 }
-label#qTag:hover {
+label.qTag:hover {
   background-color: #0098ff;
 }
-a#tag {
+a.tag {
   text-decoration: none;
   color: #333;
 }
-div#tag {
+div.tag {
   margin-top: 50px;
 }
-div#tagItemTagPage {
+div.tagItemTagPage {
   display: inline-block;
+  margin-top: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
 }
-div#users {
+div.users {
   margin-top: 20px;
 }
-div#user {
+div.user {
   vertical-align: top;
   display: inline-block;
   padding: 10px;
   margin: 10px;
   background-color: #F4F4F4;
   border-radius: 2px;
-  min-width: 260px;
+  min-width: 230px;
 }
-div#usersPage {
+div.usersPage {
   margin: auto;
   text-align: left;
   vertical-align: top;
@@ -2954,26 +2971,26 @@ div#usersPage {
   border-radius: 2px;
   min-width: 350px;
 }
-label#userNameInUsers {
+label.userNameInUsers {
   display: block;
 }
-img#userImgInUsers {
+img.userImgInUsers {
   float: left;
   margin-right: 10px;
 }
-label#userCreatedInUsers {
+label.userCreatedInUsers {
   display: block;
   font-size: 0.80em;
 }
-label#userMemeberTypeInUsers {
+label.userMemeberTypeInUsers {
   display: block;
 }
-label#userTotalPointsInUsers {
+label.userTotalPointsInUsers {
   margin-left: 10px;
   margin-bottom: 2px;
   display: inline-block;
 }
-div#uAnswers {
+div.uAnswers {
   display: block;
   padding: 5px;
   margin-top: 5px;
@@ -2986,47 +3003,47 @@ div#uAnswers {
   -webkit-box-sizing: padding-box;
   -moz-box-sizing: padding-box;
 }
-div#uAttributes {
+div.uAttributes {
   height: 60px;
   width: 49%;
   text-align: center;
   vertical-align: middle;
   display: inline-block;
 }
-div#uPartAttribute {
+div.uPartAttribute {
   vertical-align: top;
   width: 20%;
   display: inline-block;
 }
-div#uPartText {
+div.uPartText {
   vertical-align: top;
   width: 54%;
   display: inline-block;
 }
-div#uPartQuestion {
+div.uPartQuestion {
   vertical-align: top;
   width: 25%;
   display: inline-block;
 }
-label#uNbr {
+label.uNbr {
   font-size: 1.25em;
   color: #3eb1ff;
   display: block;
 }
-label#uNbrDescrip {
+label.uNbrDescrip {
   font-size: 0.80em;
   display: block;
 }
-label#uCreated {
+label.uCreated {
   display: block;
   font-size: 0.80em;
   font-style: italic;
 }
-label#uText {
+label.uText {
   font-style: italic;
   color: #898989;
 }
-div#uVoteHistory {
+div.uVoteHistory {
   display: block;
   margin: 10px;
 }
@@ -3105,7 +3122,7 @@ textarea.comment:focus {
   border: 2px solid #F4F4F4;
   border-left: 2px solid #0099FF;
 }
-textarea#textAreaAnswer {
+textarea.textAreaAnswer {
   background-color: #ffffff;
   margin-bottom: 50px;
   display: block;
@@ -3139,11 +3156,11 @@ textarea {
   padding: 5px;
 }
 textarea:hover,
-textarea#textAreaAnswer:hover {
+textarea.textAreaAnswer:hover {
   border: 2px solid #9ED8FF;
 }
 textarea:focus,
-textarea#textAreaAnswer:focus {
+textarea.textAreaAnswer:focus {
   border: 2px solid #ffffff;
   border-left: 2px solid #0099FF;
 }
@@ -3183,9 +3200,9 @@ input[type="submit"]:hover {
   text-decoration: none;
   background-color: #0099FF;
 }
-label#hits,
-label#page,
-label#orderby {
+label.hits,
+label.page,
+label.orderby {
   border: none;
   padding: 3px 10px 3px 10px;
   margin: 2px;
@@ -3195,25 +3212,25 @@ label#orderby {
   transition: background-color 0.3s;
   background-color: #9ED8FF;
 }
-div#hits {
+div.hits {
   display: block;
   margin-bottom: 10px;
   font-size: 0.80em;
 }
-div#orderby {
+div.orderby {
   display: block;
   margin-bottom: 10px;
   font-size: 0.80em;
 }
-div#page {
+div.page {
   display: block;
   margin-top: 10px;
   margin-bottom: 30px;
   font-size: 0.80em;
 }
-label#hitsActive,
-label#pageActive,
-label#orderbyActive {
+label.hitsActive,
+label.pageActive,
+label.orderbyActive {
   border: none;
   padding: 3px 10px 3px 10px;
   margin-top: 2px;
@@ -3226,11 +3243,55 @@ label#orderbyActive {
   transition: background-color 0.3s;
   background-color: #0099FF;
 }
-label#hits:hover,
-label#page:hover,
-label#orderby:hover {
+label.hits:hover,
+label.page:hover,
+label.orderby:hover {
   text-decoration: none;
   background-color: #0099FF;
+}
+.error,
+.alert,
+.notice,
+.success,
+.info {
+  padding: 0.8em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  border: 2px solid #ddd;
+}
+.error,
+.alert {
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
+}
+.notice {
+  background: #d5edf8;
+  color: #205791;
+  border-color: #92cae4;
+}
+.success {
+  background: #e6efc2;
+  color: #264409;
+  border-color: #c6d880;
+}
+.info {
+  background: #d5edf8;
+  color: #205791;
+  border-color: #92cae4;
+}
+.error a,
+.alert a {
+  color: #8a1f11;
+}
+.notice a {
+  color: #514721;
+}
+.success a {
+  color: #264409;
+}
+.info a {
+  color: #205791;
 }
 .inlineBlock {
   display: inline-block;
@@ -3263,27 +3324,28 @@ div.commentContainer {
   margin-bottom: 20px;
   border-radius: 10px;
 }
-div#divider {
+div.divider {
+  display: block;
   margin-bottom: 60px;
 }
-div#writeAnswer {
+div.writeAnswer {
   margin-top: 50px;
 }
-div#qQuestionUser {
+div.qQuestionUser {
   float: right;
 }
-div#qQuestionTags {
+div.qQuestionTags {
   position: absolute;
   bottom: 15px;
   margin-bottom: 0px;
 }
-div#qUserInfo {
+div.qUserInfo {
   position: absolute;
   bottom: 15px;
   right: 15px;
   margin-bottom: 0px;
 }
-div#aUserInfo {
+div.aUserInfo {
   margin-bottom: 10px;
 }
 img#qQuestionUser {
@@ -3364,7 +3426,49 @@ th {
   padding: 5px;
 }
 @media (max-width: 767px) {
-  div#uAnswers {
+  div.usersPage {
+    margin: auto;
+    text-align: left;
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #F4F4F4;
+    border-radius: 2px;
+    min-width: 260px;
+  }
+  div.qUserInfo {
+    position: relative;
+    display: block;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+  }
+  div.qQuestionTags {
+    position: relative;
+    bottom: 15px;
+    margin-bottom: 0px;
+  }
+  div.user {
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    background-color: #F4F4F4;
+    border-radius: 2px;
+    min-width: 260px;
+  }
+  div.sessionMessage {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+  }
+  div.uAnswers {
     display: block;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -3375,23 +3479,23 @@ th {
     border-radius: 10px;
     vertical-align: top;
   }
-  div#uAttributes {
+  div.uAttributes {
     height: 60px;
     width: 40%;
     text-align: center;
     display: inline-block;
   }
-  div#uPartAttribute {
+  div.uPartAttribute {
     vertical-align: top;
     width: 100%;
     display: block;
   }
-  div#uPartText {
+  div.uPartText {
     vertical-align: top;
     width: 100%;
     display: block;
   }
-  div#uPartQuestion {
+  div.uPartQuestion {
     vertical-align: top;
     width: 100%;
     display: block;
@@ -3408,7 +3512,7 @@ th {
     float: none;
     color: #666;
   }
-  div#aUsersCategory {
+  div.aUsersCategory {
     text-align: left;
     padding: 5px;
     background-color: #fff;
@@ -3419,7 +3523,7 @@ th {
     -webkit-box-sizing: padding-box;
     -moz-box-sizing: padding-box;
   }
-  div#userCategories {
+  div.userCategories {
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -3434,19 +3538,19 @@ th {
     margin: 0 auto;
     display: block;
   }
-  div#qPartAttribute {
+  div.qPartAttribute {
     display: inline-block;
     width: 100%;
     vertical-align: top;
   }
-  div#qPartQuestion {
+  div.qPartQuestion {
     display: inline-block;
     width: 100%;
     text-align: center;
     margin: 20px 0 20px 0;
     vertical-align: top;
   }
-  div#qPartUser {
+  div.qPartUser {
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -3480,6 +3584,29 @@ th {
     width: 99.1071428571%;
     margin: 0 0.446428571429%;
     padding: 5% 0 5%;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+  }
+  #containerJumbotronUsers {
+    text-align: center;
+    display: inline;
+    float: left;
+    width: 99.1071428571%;
+    margin: 0 0.446428571429%;
+    padding: 5% 0 5%;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+  }
+  div.user {
+    margin-top: 20px;
+    margin: 20px auto 20px 0;
+    text-align: left;
   }
   #container {
     display: inline;
@@ -3520,7 +3647,7 @@ th {
     float: none;
     color: #666;
   }
-  div#aUsersCategory {
+  div.aUsersCategory {
     text-align: left;
     padding: 5px;
     background-color: #fff;
@@ -3531,7 +3658,7 @@ th {
     -webkit-box-sizing: padding-box;
     -moz-box-sizing: padding-box;
   }
-  div#userCategories {
+  div.userCategories {
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -3546,23 +3673,38 @@ th {
     margin: 0 auto;
     display: block;
   }
-  div#qPartAttribute {
+  div.qPartAttribute {
     display: inline-block;
     width: 100%;
     vertical-align: top;
   }
-  div#qPartQuestion {
+  div.qPartQuestion {
     display: inline-block;
     width: 100%;
     text-align: center;
     margin: 20px 0 20px 0;
     vertical-align: top;
   }
-  div#qPartUser {
+  div.qPartUser {
     display: inline-block;
     width: 100%;
     text-align: center;
     vertical-align: top;
+  }
+  div.uPartAttribute {
+    vertical-align: top;
+    width: 100%;
+    display: block;
+  }
+  div.uPartText {
+    vertical-align: top;
+    width: 100%;
+    display: block;
+  }
+  div.uPartQuestion {
+    vertical-align: top;
+    width: 100%;
+    display: block;
   }
   #wrapper {
     *zoom: 1;
@@ -3679,7 +3821,7 @@ th {
   }
 }
 @media (max-width: 1166px) and (min-width: 993px) {
-  div#userCategories {
+  div.userCategories {
     width: 90%;
     margin: 0 auto;
     text-align: center;
@@ -3687,7 +3829,7 @@ th {
     -webkit-box-sizing: padding-box;
     -moz-box-sizing: padding-box;
   }
-  div#aUsersCategory {
+  div.aUsersCategory {
     text-align: left;
     padding: 5px;
     background-color: #fff;
@@ -3824,7 +3966,7 @@ th {
   #containerJumbotron {
     display: block;
     width: 70%;
-    padding-left: 15%;
+    margin: 0 auto;
     margin-bottom: 100px;
     *zoom: 1;
   }
@@ -3892,4 +4034,4 @@ th {
     clear: both;
   }
 }
-";s:5:"files";a:31:{s:78:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/style.less";i:1427502286;s:82:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/normalize.less";i:1427502284;s:82:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/variables.less";i:1427502290;s:77:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/grid.less";i:1427502283;s:83:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/typography.less";i:1427502288;s:82:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/structure.less";i:1427502286;s:109:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/font-awesome.less";i:1427502274;s:106:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/variables.less";i:1427502277;s:103:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/mixins.less";i:1427502276;s:101:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/path.less";i:1427502276;s:101:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/core.less";i:1427502274;s:103:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/larger.less";i:1427502275;s:108:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/fixed-width.less";i:1427502274;s:101:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/list.less";i:1427502275;s:112:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/bordered-pulled.less";i:1427502273;s:105:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/animated.less";i:1427502273;s:112:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/rotated-flipped.less";i:1427502276;s:104:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/stacked.less";i:1427502277;s:102:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/icons.less";i:1427502275;s:92:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/js/chosen_v1.4.1/chosen.less";i:1427502297;s:79:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/navbar.less";i:1427502284;s:79:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/figure.less";i:1427502271;s:81:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/question.less";i:1427502284;s:76:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/tag.less";i:1427502288;s:78:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/users.less";i:1427502289;s:84:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/answersUser.less";i:1427502270;s:77:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/form.less";i:1427502282;s:87:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/usable_classes.less";i:1427502289;s:81:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/comments.less";i:1427502271;s:78:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/table.less";i:1427502288;s:83:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/responsive.less";i:1427502285;}s:7:"updated";i:1427502815;}
+";s:5:"files";a:31:{s:78:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/style.less";i:1427502286;s:82:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/normalize.less";i:1427502284;s:82:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/variables.less";i:1427502290;s:77:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/grid.less";i:1427502283;s:83:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/typography.less";i:1427702562;s:82:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/structure.less";i:1427663370;s:109:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/font-awesome.less";i:1427502274;s:106:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/variables.less";i:1427502277;s:103:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/mixins.less";i:1427502276;s:101:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/path.less";i:1427502276;s:101:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/core.less";i:1427502274;s:103:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/larger.less";i:1427502275;s:108:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/fixed-width.less";i:1427502274;s:101:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/list.less";i:1427502275;s:112:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/bordered-pulled.less";i:1427502273;s:105:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/animated.less";i:1427502273;s:112:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/rotated-flipped.less";i:1427502276;s:104:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/stacked.less";i:1427502277;s:102:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/font-awesome-4.3.0/less/icons.less";i:1427502275;s:92:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/js/chosen_v1.4.1/chosen.less";i:1427502297;s:79:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/navbar.less";i:1427502284;s:79:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/figure.less";i:1427502271;s:81:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/question.less";i:1427554945;s:76:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/tag.less";i:1427702424;s:78:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/users.less";i:1427665124;s:84:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/answersUser.less";i:1427552643;s:77:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/form.less";i:1427643567;s:87:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/usable_classes.less";i:1427502289;s:81:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/comments.less";i:1427561906;s:78:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/table.less";i:1427502288;s:83:"/Applications/MAMP/htdocs/mvcphp/kmom07/Anax-MVC-master/webroot/css/responsive.less";i:1427663307;}s:7:"updated";i:1427702599;}

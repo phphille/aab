@@ -4,7 +4,7 @@
     <form method='post'>
         <fieldset>
             <input type='hidden' name='id' value='<?=$id?>' required/>
-            <textarea id='textAreaAnswer' name='text' required><?=$text?></textarea>
+            <textarea class='textAreaAnswer' name='text' required><?=$text?></textarea>
             <input type='submit' name='edit' value='Uppdatera'>
         </fieldset>
     </form>

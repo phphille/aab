@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Phpmvc\\' => array($vendorDir . '/phpmvc/comment/src', $vendorDir . '/phpmvc/CPaginering/src', ),
+    'Phpmvc\\' => array($vendorDir . '/phpmvc/comment/src', $vendorDir . '/phpmvc/CPaginering/src', $vendorDir . '/phpmvc/CFlash/src'),
     'Mos\\' => array($vendorDir . '/mos/cdatabase/src', $vendorDir . '/mos/cform/src'),
     'Anax\\' => array($baseDir . '/src'),
 );

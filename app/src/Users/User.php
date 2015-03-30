@@ -60,11 +60,27 @@ class User extends \Anax\MVC\CDatabaseModel
 
         $res = $this->db->execute($sql, [$acronym, $email, $firstName, $lastName, $password], true);
 
-        if($res = "00000"){
+        if($res == "00000"){
             $res = $this->findUser($acronym, $password);
             $this->di->session->set('user', $res[0]);
+            $this->di->session->set('output', $this->di->CFlash->message('success', 'Kontot har nu skapats'));
             $url = $this->di->url->create('users/user/' .$res[0]->id);
             $this->di->response->redirect($url);
+        }
+        else if($res == "23000"){
+
+            $this->di->session->set('output', $this->di->CFlash->message('notice', 'Tyvärr finns det redan en användare med det namnet. Välj gärna något annat.'));
+
+            //echo  $this->di->session->get('output');
+            $url = $this->di->url->create('users/create-user/');
+            $this->di->response->redirect($url);
+        }
+        else{
+
+            $this->di->session->set('output', $this->di->CFlash->message('error', 'Det hände något oväntat och kontot skapades ej.'));
+            $url = $this->di->url->create('users/create-user/');
+            $this->di->response->redirect($url);
+
         }
     }
 

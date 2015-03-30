@@ -1,5 +1,5 @@
 <h1><?=$title?></h1>
-<div id='createUser'>
+<div class='createUser'>
       <form method=post>
         <fieldset>
             <label>Acronym:<br><input type='text' name='acronym' required/></label>
