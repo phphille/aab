@@ -1,6 +1,6 @@
 aab
 ======
-A project in the course: Databasdrivna webbapplikationer med PHP och Model View Controller (MVC) (phpmvc / DV1486) BTH.se
+A project in the course: Databasdrivna webbapplikationer med PHP och Model View Controller (MVC) (phpmvc / DV1486) [Link](http://edu.bth.se/utbildning/utb_kurstillfalle.asp?KtAnmKod=C5320&KtTermin=20151&lang=sv)
 
 Read more about the project [here](http://dbwebb.se/phpmvc/kmom10).(in swedish) 
 
